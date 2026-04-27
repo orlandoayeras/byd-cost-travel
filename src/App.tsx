@@ -4,12 +4,12 @@ import Dashboard from './components/Dashboard'
 import type { Inputs, Calculations } from './types'
 
 const DEFAULTS: Inputs = {
-  modelName: 'SEAL 5 PREMIUM',
-  kwhPer100km: 6.6,
-  lPer100km: 1.5,
-  mileage: 8790,
-  electricityRate: 15,
-  fuelPrice: 60,
+  modelName: '',
+  kwhPer100km: 0,
+  lPer100km: 0,
+  mileage: 0,
+  electricityRate: 0,
+  fuelPrice: 0,
 }
 
 function compute(inputs: Inputs): Calculations {
