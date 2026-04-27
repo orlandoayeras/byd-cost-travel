@@ -1,33 +1,23 @@
 import type { Inputs } from '../types'
 
-type ModelOption = { label: string; value: string; isVariant?: boolean }
-
-const BYD_MODELS: ModelOption[] = [
-  { label: 'BYD Seagull', value: 'BYD Seagull' },
-  { label: 'BYD Seal', value: 'BYD Seal' },
-  { label: '  Performance', value: 'BYD Seal Performance', isVariant: true },
-  { label: '  Advanced', value: 'BYD Seal Advanced', isVariant: true },
-  { label: 'BYD Dolphin', value: 'BYD Dolphin' },
-  { label: 'BYD Tang', value: 'BYD Tang' },
-  { label: 'BYD Han', value: 'BYD Han' },
-  { label: 'BYD Atto 3', value: 'BYD Atto 3' },
-  { label: '  Dynamic', value: 'BYD Atto 3 Dynamic', isVariant: true },
-  { label: '  Premium', value: 'BYD Atto 3 Premium', isVariant: true },
-  { label: 'BYD eMAX 7', value: 'BYD eMAX 7' },
-  { label: '  Standard', value: 'BYD eMAX 7 Standard', isVariant: true },
-  { label: '  Superior Captain', value: 'BYD eMAX 7 Superior Captain', isVariant: true },
-  { label: 'BYD Sealion 6', value: 'BYD Sealion 6' },
-  { label: 'BYD Sealion 5', value: 'BYD Sealion 5' },
-  { label: 'BYD Shark 6', value: 'BYD Shark 6' },
-  { label: '  Premium', value: 'BYD Shark 6 Premium', isVariant: true },
-  { label: '  Advanced', value: 'BYD Shark 6 Advanced', isVariant: true },
-  { label: 'BYD Tang DM-i', value: 'BYD Tang DM-i' },
-  { label: 'BYD Seal 5', value: 'BYD Seal 5' },
-  { label: '  Dynamic', value: 'BYD Seal 5 Dynamic', isVariant: true },
-  { label: '  Premium', value: 'BYD Seal 5 Premium', isVariant: true },
-  { label: 'BYD eMAX 9', value: 'BYD eMAX 9' },
-  { label: '  Premium', value: 'BYD eMAX 9 Premium', isVariant: true },
-  { label: '  Advanced', value: 'BYD eMAX 9 Advanced', isVariant: true },
+const BYD_MODELS = [
+  'BYD Seagull EV',
+  'BYD Dolphin EV',
+  'BYD Tang EV',
+  'BYD Tang DM-i',
+  'BYD Han EV',
+  'BYD Atto 3 DM-i Dynamic',
+  'BYD Atto 3 DM-i Premium',
+  'BYD Seal 5 DM-i Dynamic',
+  'BYD Seal 5 DM-i Premium',
+  'BYD Shark 6 DMO Premium',
+  'BYD Shark 6 DMO Advanced',
+  'BYD Sealion 6 DM-i',
+  'BYD Sealion 5 DM-i',
+  'BYD eMAX 7 DM-i Standard',
+  'BYD eMAX 7 DM-i Superior Captain',
+  'BYD eMAX 9 DM-i Premium',
+  'BYD eMAX 9 DM-i Advanced',
 ]
 
 interface InputPanelProps {
@@ -71,10 +61,8 @@ export default function InputPanel({ inputs, onChange }: InputPanelProps) {
             onChange={e => onChange('modelName', e.target.value)}
           >
             <option value="">— Select a model —</option>
-            {BYD_MODELS.map(opt => (
-              <option key={opt.value} value={opt.value} style={opt.isVariant ? { paddingLeft: '1.5rem' } : undefined}>
-                {opt.label}
-              </option>
+            {BYD_MODELS.map(model => (
+              <option key={model} value={model}>{model}</option>
             ))}
           </select>
         </div>
