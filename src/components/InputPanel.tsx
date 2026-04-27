@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import type { Inputs } from '../types'
 
 const BYD_MODELS = [
@@ -35,16 +36,26 @@ function NumInput({
   value: number
   field: keyof Inputs
   step: number
-  min: number
+  min?: number
   onChange: (field: keyof Inputs, value: number) => void
 }) {
+  const [raw, setRaw] = useState(value === 0 ? '' : String(value))
+
+  useEffect(() => {
+    if (value === 0) setRaw('')
+  }, [value])
+
   return (
     <input
       type="number"
-      value={value}
+      value={raw}
       step={step}
       min={min}
-      onChange={e => onChange(field, parseFloat(e.target.value) || 0)}
+      placeholder="0"
+      onChange={e => {
+        setRaw(e.target.value)
+        onChange(field, parseFloat(e.target.value) || 0)
+      }}
     />
   )
 }
@@ -70,7 +81,7 @@ export default function InputPanel({ inputs, onChange }: InputPanelProps) {
         <div className="input-field">
           <label>⚡ Energy Consumption (EV)</label>
           <div className="input-unit-wrap">
-            <NumInput value={inputs.kwhPer100km} field="kwhPer100km" step={0.1} min={0} onChange={onChange} />
+            <NumInput value={inputs.kwhPer100km} field="kwhPer100km" step={0.1} onChange={onChange} />
             <span className="unit">kWh/100km</span>
           </div>
         </div>
