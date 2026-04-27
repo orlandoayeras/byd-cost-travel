@@ -76,6 +76,7 @@ body {
   margin-bottom: 0.3rem;
 }
 
+.input-field select,
 .input-field input[type='text'],
 .input-field input[type='number'] {
   width: 100%;
@@ -90,7 +91,8 @@ body {
   outline: none;
 }
 
-.input-field input:focus {
+.input-field input:focus,
+.input-field select:focus {
   border-color: var(--ev);
   background: var(--white);
 }
