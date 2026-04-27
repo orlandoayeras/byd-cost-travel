@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import InputPanel from './components/InputPanel'
+import CarHero from './components/CarHero'
 import Dashboard from './components/Dashboard'
 import type { Inputs, Calculations } from './types'
 
@@ -54,6 +55,7 @@ export default function App() {
   return (
     <div className="app">
       <InputPanel inputs={inputs} onChange={handleChange} />
+      <CarHero modelName={inputs.modelName} />
       <Dashboard inputs={inputs} calculations={calculations} />
     </div>
   )

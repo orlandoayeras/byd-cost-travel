@@ -136,6 +136,22 @@ body {
   background: #f0f0f0;
 }
 
+/* ── Car Hero ────────────────────────────────────────────── */
+.car-hero {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  line-height: 0;
+}
+
+.car-hero img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 /* ── Dashboard ───────────────────────────────────────────── */
 .dashboard {
   border-radius: var(--radius);
